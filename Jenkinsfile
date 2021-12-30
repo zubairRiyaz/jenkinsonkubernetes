@@ -6,11 +6,6 @@ pipeline {
   }
   agent any
   stages {
-    stage('Cloning Git') {
-      steps {
-        git 'https://github.com/zubairriyaz/jenkinsonkubernetes.git'
-      }
-    }
     stage('Building image') {
       steps{
         script {
