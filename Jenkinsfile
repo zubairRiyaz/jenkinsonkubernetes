@@ -1,15 +1,19 @@
 pipeline {
   environment {
-    registry = "zubairriyaz/jenkinsonkubernetes"
-    registryCredential = 'dockerhub'
+  
     dockerImage = ''
   }
   agent any
   stages {
+    stage('Checkout Source') {
+      steps {
+        git url:'https://github.com/zubairRiyaz/jenkinsonkubernetes.git', branch:'main'
+      }
+    }
     stage('Building image') {
       steps{
         script {
-          dockerImage = docker.build registry + ":$BUILD_NUMBER"
+          dockerImage = docker.build("zubairRiyaz/jenkinsonkubernetes:${env.BUILD_ID}")
         }
       }
     }
