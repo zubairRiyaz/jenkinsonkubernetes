@@ -1,6 +1,6 @@
 pipeline {
   environment {
-    registry = "zubairRiyaz/jenkinsonkubernetes"
+    registry = "zubairriyaz/jenkinsonkubernetes"
     registryCredential = 'dockerhub'
     dockerImage = ''
   }
