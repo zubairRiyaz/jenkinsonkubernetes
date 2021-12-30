@@ -1,13 +1,14 @@
 pipeline {
   environment {
-  
+    registry = "zubairbhat722/myapacheimage"
+    registryCredential = 'dockerhub'
     dockerImage = ''
   }
   agent any
   stages {
-    stage('Checkout Source') {
+    stage('Cloning Git') {
       steps {
-        git url:'https://github.com/zubairriyaz/jenkinsonkubernetes.git', branch:'main'
+        git 'https://github.com/zubairRiyaz/jenkinsonkubernetes.git'
       }
     }
     stage('Building image') {
