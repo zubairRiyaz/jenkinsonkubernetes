@@ -15,11 +15,7 @@ pipeline {
         sh 'docker build -t zubairbhat722/nginximage  .'
       }
     }
-    stage('login') {
-      steps {
-        sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR -p —-password-stdin'
-      }
-    }  
+    
     
     stage('Deploy Image') {
       steps {
