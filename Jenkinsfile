@@ -13,7 +13,7 @@ pipeline {
     stage('Building image') {
       steps{
         script {
-          dockerImage = docker.build("zubairRiyaz/jenkinsonkubernetes:${env.BUILD_ID}")
+          dockerImage = docker.build("zubairriyaz/jenkinsonkubernetes:${env.BUILD_ID}")
         }
       }
     }
