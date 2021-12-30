@@ -18,7 +18,7 @@ pipeline {
     stage('Deploy Image') {
       steps {
         sh 'docker push zubairbhat722/nginximage'
-        }
+        
       }
     }
     stage('Remove Unused docker image') {
