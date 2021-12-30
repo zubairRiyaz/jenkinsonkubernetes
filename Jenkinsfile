@@ -8,7 +8,7 @@ pipeline {
   stages {
     stage('Cloning Git') {
       steps {
-        git 'https://github.com/zubairRiyaz/jenkinsonkubernetes.git'
+        git 'https://github.com/zubairriyaz/jenkinsonkubernetes.git'
       }
     }
     stage('Building image') {
