@@ -1,24 +1,23 @@
 pipeline {
   environment {
-    registry = "zubairbhat722/nginximage"
-    registryCredential = 'dockerhub'
-    dockerImage = ''
+    DOCKERHUB_CREDENTIALS = credentials(‘dockerhub’)
   }
   agent any
   stages {
     stage('Building image') {
       steps{
-        script {
-          dockerImage = docker.build("zubairriyaz/jenkinsonkubernetes:${env.BUILD_ID}")
-        }
+        Sh ‘docker build -t zubairbhat722/nginximage  .’
       }
     }
+    stage('login') {
+      steps{
+        Sh ‘echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR —password-stdin’
+      }
+    }  
+    
     stage('Deploy Image') {
       steps{
-        script {
-          docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
-            dockerImage.push()
-          }
+        sh 'docker push zubairbhat722/nginximage'
         }
       }
     }
@@ -26,6 +25,11 @@ pipeline {
       steps{
         sh "docker rmi $registry:$BUILD_NUMBER"
       }
+    }
+  }
+  Post {
+    Always {
+        Sh ‘docker logout’
     }
   }
 }
