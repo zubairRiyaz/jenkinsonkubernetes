@@ -1,6 +1,6 @@
 pipeline {
   environment {
-    registry = "zubairbhat722/myapacheimage"
+    registry = "zubairbhat722/nginximage"
     registryCredential = 'dockerhub'
     dockerImage = ''
   }
