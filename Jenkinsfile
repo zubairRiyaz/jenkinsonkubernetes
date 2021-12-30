@@ -12,12 +12,12 @@ pipeline {
     
     stage('Building image') {
       steps {
-        sh ‘docker build -t zubairbhat722/nginximage  .’
+        sh 'docker build -t zubairbhat722/nginximage  .'
       }
     }
     stage('login') {
       steps {
-        sh ‘echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR —password-stdin’
+        sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR —password-stdin’
       }
     }  
     
@@ -29,7 +29,7 @@ pipeline {
     }
     stage('Remove Unused docker image') {
       steps {
-        sh "docker rmi $registry:$BUILD_NUMBER"
+        sh 'docker rmi $registry:$BUILD_NUMBER'
       }
     }
   }
