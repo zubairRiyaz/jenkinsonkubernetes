@@ -6,7 +6,7 @@ pipeline {
   stages {
     stage('Checkout Source') {
       steps {
-        git url:'https://github.com/zubairriyaz/jenkinsonkubernetes.git', branch:'master'
+        git url:'https://github.com/zubairriyaz/jenkinsonkubernetes.git', branch:'main'
       }
     }
     
