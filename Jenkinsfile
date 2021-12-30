@@ -4,6 +4,12 @@ pipeline {
   }
   agent any
   stages {
+    stage('Checkout Source') {
+      steps {
+        git url:'https://github.com/zubairriyaz/jenkinsonkubernetes.git', branch:'master'
+      }
+    }
+    
     stage('Building image') {
       steps {
         sh ‘docker build -t zubairbhat722/nginximage  .’
