@@ -6,7 +6,7 @@ pipeline {
   stages {
     stage('Building image') {
       steps {
-        sh ‘docker build -t zubairbhat722/nginximage  .’
+        sh ‘ sudo docker build -t zubairbhat722/nginximage  .’
       }
     }
     stage('login') {
