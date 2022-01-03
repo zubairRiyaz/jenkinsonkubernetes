@@ -9,8 +9,7 @@ pipeline {
     
     stage('Building image') {
       steps {
-        sh 'docker build -t zubairbhat722/nginximage:latest  .'
-        sh 'docker tag nginximage zubairbhat722/nginximage:latest'
+        sh 'docker build -t zubairbhat722/nginximage .'
         sh 'docker tag nginximage zubairbhat722/nginximage:$BUILD_NUMBER'
       }
     }
@@ -18,7 +17,7 @@ pipeline {
     stage('Deploy Image') {
       steps {
         withDockerRegistry([ credentialsId: "dockerhub", url: "" ]) {
-          sh  'docker push zubairbhat722/nginximage:latest'
+          sh  'docker push zubairbhat722/nginximage'
           sh  'docker push zubairbhat722/nginximage:$BUILD_NUMBER'
         }  
       }
