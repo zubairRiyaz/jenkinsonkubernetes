@@ -21,6 +21,14 @@ pipeline {
         }  
       }
     }
+    stage('Deploy App') {
+      steps {
+        script {
+          kubernetesDeploy(configs: "myweb.yaml", kubeconfigId: "mykubeconfig")
+        }
+      }
+    }
+    
     stage('Remove Unused docker image') {
       steps {
         sh 'docker rmi $registry:$BUILD_NUMBER'
