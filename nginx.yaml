@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: mynginx
-        image: zubairbhat722/nginximage::latest
+        image: zubairbhat722/nginximage:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 80
