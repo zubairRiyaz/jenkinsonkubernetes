@@ -1,7 +1,4 @@
 pipeline {
-  environment {
-    registry = "zubairbhat722/nginximage"
-  }  
   agent any
   stages {
     stage('Checkout Source') {
@@ -31,10 +28,5 @@ pipeline {
       }
     }
     
-    stage('Remove Unused docker image') {
-      steps {
-        sh 'docker rmi $registry'
-      }
-    }
   }
 }
