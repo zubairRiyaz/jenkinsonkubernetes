@@ -1,4 +1,7 @@
 pipeline {
+  environment {
+    registry = "zubairbhat722/nginximage"
+  }  
   agent any
   stages {
     stage('Checkout Source') {
