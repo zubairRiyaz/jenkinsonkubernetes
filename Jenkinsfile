@@ -10,8 +10,8 @@ pipeline {
     stage('Building image') {
       steps {
         sh 'docker build -t zubairbhat722/nginximage:latest  .'
-        sh 'docker tag nginxtest zubairbhat722/nginximage:latest'
-        sh 'docker tag nginxtest zubairbhat722/nginximage:$BUILD_NUMBER'
+        sh 'docker tag nginximage zubairbhat722/nginximage:latest'
+        sh 'docker tag nginximage zubairbhat722/nginximage:$BUILD_NUMBER'
       }
     }
     
