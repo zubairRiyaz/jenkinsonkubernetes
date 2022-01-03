@@ -1,7 +1,4 @@
 pipeline {
-  environment {
-    DOCKERHUB_CREDENTIALS = credentials('dockerhub')
-  }
   agent any
   stages {
     stage('Checkout Source') {
@@ -15,16 +12,12 @@ pipeline {
         sh 'docker build -t zubairbhat722/nginximage  .'
       }
     }
-    stage('login') {
-      steps {
-        sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR -p —-password-stdin'
-      }
-    }  
     
     stage('Deploy Image') {
       steps {
-        sh 'docker push zubairbhat722/nginximage'
-        
+        withDockerRegistry([ credentialsId: "dockerhub", url: "" ])
+        sh  'docker push zubairbhat722/nginximage'
+        sh  'docker push zubairbhat722/nginximage:$BUILD_NUMBER'
       }
     }
     stage('Remove Unused docker image') {
