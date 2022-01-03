@@ -15,9 +15,10 @@ pipeline {
     
     stage('Deploy Image') {
       steps {
-        withDockerRegistry([ credentialsId: "dockerhub", url: "" ])
-        sh  'docker push zubairbhat722/nginximage'
-        sh  'docker push zubairbhat722/nginximage:$BUILD_NUMBER'
+        withDockerRegistry([ credentialsId: "dockerhub", url: "" ]) {
+          sh  'docker push zubairbhat722/nginximage'
+          sh  'docker push zubairbhat722/nginximage:$BUILD_NUMBER'
+        }  
       }
     }
     stage('Remove Unused docker image') {
