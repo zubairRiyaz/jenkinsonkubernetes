@@ -1,5 +1,5 @@
 pipeline {
-  agent{ 'jenkins-jenkins-agent' }
+  agent{ label 'jenkins-jenkins-agent' }
   stages {
     stage('Checkout Source') {
       steps {
