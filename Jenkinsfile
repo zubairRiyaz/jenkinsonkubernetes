@@ -7,19 +7,7 @@ pipeline {
       }
     }
     
-    stage('Building image') {
-      steps {
-        sh 'docker build -t zubairbhat722/nginximage .'
-      }
-    }
-    
-    stage('Deploy Image') {
-      steps {
-        withDockerRegistry([ credentialsId: "dockerhub", url: "" ]) {
-          sh  'docker push zubairbhat722/nginximage'
-        }  
-      }
-    }
+   
     stage('Deploy App') {
       steps {
         script {
