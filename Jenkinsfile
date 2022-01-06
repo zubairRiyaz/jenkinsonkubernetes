@@ -8,7 +8,7 @@ pipeline {
     }
     stage('Building image') {
       steps{
-        sh 'docker build -t zubairbhat722/nginximage:latest .')
+        sh 'docker build -t zubairbhat722/nginximage:latest .'
         
       }
     }
