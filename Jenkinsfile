@@ -44,11 +44,11 @@ spec:
     stage('Checkout Source') {
       steps {
         git url:'https://github.com/zubairriyaz/jenkinsonkubernetes.git', branch:'main'
-        }
+        
       }  
     }
     stage('Building image') {
-      steps{
+      steps {
         container('docker') {
           
            sh 'docker build -t jenkins-jenkins-agent:$BUILD_NUMBER .'
