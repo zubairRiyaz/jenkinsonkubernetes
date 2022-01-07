@@ -1,5 +1,5 @@
 pipeline {
-  agent 
+  agent {
     kubernetes {
       label 'jenkins-jenkins-agent'
       defaultContainer 'jnlp'
