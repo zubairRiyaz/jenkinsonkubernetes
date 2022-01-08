@@ -1,7 +1,7 @@
 pipeline {
   agent {
     kubernetes {
-      label 'nginximage'
+      label 'zubairbhat722/nginximage'
       defaultContainer 'jnlp'
       yaml """
 apiVersion: v1
