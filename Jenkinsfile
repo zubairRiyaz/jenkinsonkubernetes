@@ -6,7 +6,6 @@ pipeline {
       yaml """
 apiVersion: v1
 kind: Pod
-metadata:
 spec:
   # Use service account that can deploy to all namespaces
   serviceAccountName: jenkins
@@ -28,7 +27,7 @@ spec:
       persistentVolumeClaim:
         claimName: jenkins-pvc
 """
-}
+              }
    }
   
   stages {
