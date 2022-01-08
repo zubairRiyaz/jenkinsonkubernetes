@@ -23,7 +23,7 @@ spec:
     - name: docker-sock
       hostPath:
         path: /var/run/docker.sock
-    - name: jenkins-pv
+    - name: docker-sock
       persistentVolumeClaim:
         claimName: jenkins-pvc
 """
