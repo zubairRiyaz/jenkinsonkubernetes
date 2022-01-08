@@ -32,21 +32,6 @@ spec:
    }
   
   stages {
-    stage('Build') {
-      steps {
-        container('maven') {
-          sh """
-                        mvn package -DskipTests
-                                                """
-        }
-      }
-    }
-    stage('Checkout Source') {
-      steps {
-        git url:'https://github.com/zubairriyaz/jenkinsonkubernetes.git', branch:'main'
-        
-      }  
-    }
     stage('Building image') {
       steps {
         container('docker') {
