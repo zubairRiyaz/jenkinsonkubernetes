@@ -21,6 +21,8 @@ spec:
       name: dockersock
   volumes:
     - name: dockersock
+      hostPath:
+        path: /var/run/docker.sock
       persistentVolumeClaim:
         claimName: jenkins-pv-claim
 """
