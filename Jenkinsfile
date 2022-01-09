@@ -8,7 +8,7 @@ apiVersion: v1
 kind: Pod
 spec:
   # Use service account that can deploy to all namespaces
-  serviceAccountName: jenkins
+  serviceAccountName: jenkins-admin
   containers:
  
   - name: docker
@@ -22,7 +22,7 @@ spec:
   volumes:
     - name: docker-sock
       persistentVolumeClaim:
-        claimName: jenkins-pvc
+        claimName: jenkins-pv-claim
 """
               }
    }
