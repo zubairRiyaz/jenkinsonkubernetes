@@ -1,7 +1,7 @@
 pipeline {
   agent {
     kubernetes {
-      label 'zubairbhat722/nginximage'
+      label 'nginximage'
       yaml """
 apiVersion: v1
 kind: Pod
