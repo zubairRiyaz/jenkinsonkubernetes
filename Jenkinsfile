@@ -20,9 +20,6 @@ spec:
     - mountPath: /var/run/docker.sock
       name: dockersock
   volumes:
-    - name: jenkins-data
-      persistentVolumeClaim:
-          claimName: jenkins-pv-claim
     - name: dockersock
       hostPath:
         path: /var/run/docker.sock
