@@ -16,6 +16,17 @@ spec:
     command:
     - cat
     tty: true
+    volumeMounts:
+    - mountPath: /var/run/docker.sock
+      name: dockersock
+  volumes:
+    - name: dockersock
+      hostPath:
+        path: /var/run/docker.sock
+    - name: jenkins-data
+      persistentVolumeClaim:
+          claimName: jenkins-pv-claim
+    
 """
               }
    }
