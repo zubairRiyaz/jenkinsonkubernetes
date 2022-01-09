@@ -6,7 +6,7 @@ apiVersion: v1
 kind: Pod
 metadata:
           labels:
-            label: nginximage
+            label: mylabel
 spec:
   # Use service account that can deploy to all namespaces
   containers:
