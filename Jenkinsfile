@@ -40,6 +40,17 @@ spec:
         }
       }
     }
+    stage('Publish image to Docker Hub') {
+          
+            steps {
+        withDockerRegistry([ credentialsId: "dockerhub", url: "" ]) {
+          sh  'docker push zubairbhat722/nginximage:latest'
+          sh  'docker push zubairbhat722/nginximage:$BUILD_NUMBER' 
+        }
+                  
+          }
+        }
+    
     stage('Deploy App') {
       steps {
         script {
