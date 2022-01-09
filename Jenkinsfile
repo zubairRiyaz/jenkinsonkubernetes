@@ -1,13 +1,14 @@
 pipeline {
   agent {
     kubernetes {
-      label 'nginximage'
       yaml """
 apiVersion: v1
 kind: Pod
+metadata:
+          labels:
+            label: nginximage
 spec:
   # Use service account that can deploy to all namespaces
-  serviceAccountName: jenkins-admin
   containers:
  
   - name: docker
