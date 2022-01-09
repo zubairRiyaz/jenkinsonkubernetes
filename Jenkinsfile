@@ -46,7 +46,7 @@ spec:
               container('docker') {
         withDockerRegistry([ credentialsId: "dockerhub", url: "" ]) {
           sh  'docker push zubairbhat722/nginximage:latest'
-          sh  'docker push zubairbhat722/nginximage:$BUILD_NUMBER' 
+           
               }
         }
                   
