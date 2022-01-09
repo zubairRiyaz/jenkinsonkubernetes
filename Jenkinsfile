@@ -18,9 +18,9 @@ spec:
     tty: true
     volumeMounts:
     - mountPath: /var/run/docker.sock
-      name: docker-sock
+      name: dockersock
   volumes:
-    - name: docker-sock
+    - name: dockersock
       persistentVolumeClaim:
         claimName: jenkins-pv-claim
 """
