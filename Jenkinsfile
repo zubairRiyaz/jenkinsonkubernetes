@@ -30,7 +30,13 @@ spec:
 """
               }
    }
-  
+  parameters {
+    string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
+    choice(
+        name: 'myParameter',
+        choices: ['dev', 'prod'],
+        description: 'Environment where the app should be deployed' )
+  }
   stages {
     stage('Building image') {
       steps {
@@ -52,6 +58,15 @@ spec:
                   
           }
     }
+    stage("Deploy") {
+      // Deploy app version ${params.version} to ${params.env} env
+     
+      //add release information to the dashboard
+      addDeployToDashboard(
+          env: params.env,
+          buildNumber: params.version
+      )
+  }
     
     stage('Deploy App') {
       steps {
