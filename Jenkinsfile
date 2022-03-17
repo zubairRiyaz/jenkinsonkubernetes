@@ -33,7 +33,7 @@ spec:
   parameters {
     string(name: 'version', defaultValue: 'version 1.2', description: 'App version to deploy')
     choice(
-        name: 'myParameter',
+        name: 'env',
         choices: ['dev', 'prod'],
         description: 'Environment where the app should be deployed' )
   }
