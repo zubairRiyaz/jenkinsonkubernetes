@@ -58,7 +58,7 @@ spec:
                   
           }
     }
-    stage("Deploy") {
+    stage('Deploy') {
       // Deploy app version ${params.version} to ${params.env} env
      
       //add release information to the dashboard
