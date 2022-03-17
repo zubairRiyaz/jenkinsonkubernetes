@@ -62,11 +62,13 @@ spec:
       // Deploy app version ${params.version} to ${params.env} env
      
       //add release information to the dashboard
-      addDeployToDashboard(
+      steps {
+        addDeployToDashboard(
           env: params.env,
           buildNumber: params.version
-      )
-  }
+        )
+      }
+    }
     
     stage('Deploy App') {
       steps {
