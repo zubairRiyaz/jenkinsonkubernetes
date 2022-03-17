@@ -31,7 +31,7 @@ spec:
               }
    }
   parameters {
-    string(name: 'version', description: 'App version to deploy')
+    string(name: 'version', defaultValue: 'version 1.2', description: 'App version to deploy')
     choice(
         name: 'myParameter',
         choices: ['dev', 'prod'],
