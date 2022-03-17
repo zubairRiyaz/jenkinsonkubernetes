@@ -31,7 +31,7 @@ spec:
               }
    }
   parameters {
-    string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
+    string(name: 'version', description: 'App version to deploy')
     choice(
         name: 'myParameter',
         choices: ['dev', 'prod'],
